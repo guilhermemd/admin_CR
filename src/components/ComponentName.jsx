@@ -113,6 +113,7 @@ const ComponentName = (props) => {
                   <UpdateItemForm
                     setUpdateTimer={setUpdateTimer}
                     updateTimer={updateTimer}
+                    refreshPage={refreshPage}
                     item={item}
                   />
                 ) : null}
