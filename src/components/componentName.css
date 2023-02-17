@@ -1,0 +1,22 @@
+.admin__infos {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.admin__wrapper {
+  max-width: 1024px;
+  margin: 1rem auto;
+}
+.admin__infos__wrapper {
+  padding: 0.25rem 0;
+}
+.admin__infos__key {
+  font-weight: bold;
+}
+
+.admin__infos__btns {
+  display: flex;
+  gap: 0.5rem;
+}

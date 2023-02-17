@@ -1,0 +1,16 @@
+.updateItemForm__form {
+  border: 1px solid black;
+  margin: 1rem 0;
+}
+.updateItemForm__input__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.updateItemForm__submit {
+  margin: 0 0 1rem 1rem;
+  width: 145px;
+  height: 40px;
+}

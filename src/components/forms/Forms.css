@@ -1,0 +1,28 @@
+.forms {
+  margin: auto;
+}
+
+.forms__wrapper {
+  border: 1px solid black;
+  max-width: 1024px;
+  margin: auto;
+}
+
+.forms__wrapper__title {
+  text-align: center;
+}
+
+.forms label {
+  padding: 0.5rem;
+}
+.forms__inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.forms__infos__btn {
+  max-width: 10rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
