@@ -78,6 +78,10 @@ const ComponentName = (props) => {
                   <span key={index}>{item.state}</span>
                 </div>
                 <div className="admin__infos__wrapper">
+                  <span className="admin__infos__key">Endereço: </span>
+                  <span key={index}>{item.address}</span>
+                </div>
+                <div className="admin__infos__wrapper">
                   <span className="admin__infos__key">Horário: </span>
                   <span key={index}>{item.hour}</span>
                 </div>

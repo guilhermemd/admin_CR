@@ -37,7 +37,7 @@ const Forms = ({ refreshPage, setUpdateTimer }) => {
     <div className="forms">
       <div className="forms__wrapper">
         <h3 className="forms__wrapper__title">
-          Prencha as informações do local de show:
+          Preencha as informações do local de show:
         </h3>
         <form onSubmit={handleSubmit} className="forms__inputs">
           <label>
