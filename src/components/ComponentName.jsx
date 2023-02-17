@@ -83,7 +83,16 @@ const ComponentName = (props) => {
                 </div>
                 <div className="admin__infos__wrapper">
                   <span className="admin__infos__key">Google Maps: </span>
-                  <span key={index}>{item.mapsInfo}</span>
+                  {item.mapsInfo ? (
+                    <a
+                      href={item.mapsInfo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      key={index}
+                    >
+                      Link
+                    </a>
+                  ) : null}
                 </div>
                 <div className="admin__infos__btns">
                   <button
