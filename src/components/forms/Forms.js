@@ -12,6 +12,11 @@ const Forms = ({ refreshPage, setUpdateTimer }) => {
   const [address, setAddress] = useState("");
   const [hour, setHour] = useState("");
   const [mapsInfo, setMapsInfo] = useState("");
+
+  const [errorDate, setErrorDate] = useState("");
+  const [errorLocal, setErrorLocal] = useState("");
+  const [errorCity, setErrorCity] = useState("");
+  const [errorState, setErrorState] = useState("");
   const handleCreate = async (data) => {
     try {
       const response = await axios.post(endpoint, data);
@@ -33,6 +38,45 @@ const Forms = ({ refreshPage, setUpdateTimer }) => {
       refreshPage();
     }, 3000);
   };
+
+  const handleLocal = ({ target }) => {
+    if (target.value.length === 0) {
+      setErrorLocal("Campo Obrigatório");
+    } else {
+      setErrorLocal("");
+    }
+    setLocal(target.value);
+  };
+
+  const handleDate = ({ target }) => {
+    const regEx = /^\d{4}-\d{2}-\d{2}$/;
+
+    if (!target.value.match(regEx)) {
+      setErrorDate("A data deve ser YYYY-MM-DD. Exemplo 2023-12-31");
+    } else {
+      setErrorDate("");
+    }
+    setDate(target.value);
+  };
+
+  const handleCity = ({ target }) => {
+    if (target.value.length === 0) {
+      setErrorCity("Campo Obrigatório");
+    } else {
+      setErrorCity("");
+    }
+    setCity(target.value);
+  };
+
+  const handleState = ({ target }) => {
+    if (target.value.length <= 1) {
+      setErrorState("Campo com duas letras. Exemplo: RS");
+    } else {
+      setErrorState("");
+    }
+    setState(target.value);
+  };
+
   return (
     <div className="forms">
       <div className="forms__wrapper">
@@ -45,38 +89,42 @@ const Forms = ({ refreshPage, setUpdateTimer }) => {
             <input
               type="text"
               value={local}
-              onChange={(e) => setLocal(e.target.value)}
+              onChange={(e) => handleLocal(e)}
               placeholder="Local"
             />
           </label>
+          {errorLocal && <div style={{ color: "red" }}>{errorLocal}</div>}
           <label>
             Data:
             <input
               type="text"
               value={date}
-              onChange={(e) => setDate(e.target.value)}
+              onChange={(e) => handleDate(e)}
               placeholder="YYYY-MM-DD"
             />
           </label>
-
+          {errorDate && <div style={{ color: "red" }}>{errorDate}</div>}
           <label>
             Cidade:
             <input
               type="text"
               value={city}
-              onChange={(e) => setCity(e.target.value)}
+              onChange={(e) => handleCity(e)}
               placeholder="Cidade"
             />
           </label>
+          {errorCity && <div style={{ color: "red" }}>{errorCity}</div>}
           <label>
             Estado:
             <input
               type="text"
               value={state}
-              onChange={(e) => setState(e.target.value)}
+              onChange={(e) => handleState(e)}
               placeholder="Estado"
             />
           </label>
+          {errorState && <div style={{ color: "red" }}>{errorState}</div>}
+
           <label>
             Endereço:
             <input
