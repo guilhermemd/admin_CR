@@ -17,6 +17,10 @@ const Forms = ({ refreshPage, setUpdateTimer }) => {
   const [errorLocal, setErrorLocal] = useState("");
   const [errorCity, setErrorCity] = useState("");
   const [errorState, setErrorState] = useState("");
+
+  const pwd = "editar";
+
+  const [password, setPassword] = useState("");
   const handleCreate = async (data) => {
     try {
       const response = await axios.post(endpoint, data);
@@ -152,9 +156,20 @@ const Forms = ({ refreshPage, setUpdateTimer }) => {
               placeholder="https://www.google.com.br/maps/"
             />
           </label>
-          <button className="forms__infos__btn" type="submit">
-            Enviar
-          </button>
+          <div className="password-container">
+            <label htmlFor="password">Senha:</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          {pwd === password && (
+            <button className="forms__infos__btn" type="submit">
+              Enviar
+            </button>
+          )}
         </form>
       </div>
     </div>
