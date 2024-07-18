@@ -19,6 +19,9 @@ const ComponentName = (props) => {
   const [active, setActive] = useState(false);
   const [indexActive, setIndexActive] = useState(null);
   const [updateTimer, setUpdateTimer] = useState(false);
+  const pwd = "editar";
+
+  const [password, setPassword] = useState("");
 
   const handleUpdateArea = (boolean, index) => {
     setActive(boolean);
@@ -98,17 +101,28 @@ const ComponentName = (props) => {
                     </a>
                   ) : null}
                 </div>
-                <div className="admin__infos__btns">
-                  <button
-                    key={`btn-${index}`}
-                    onClick={() => handleDelete(item._id)}
-                  >
-                    Delete
-                  </button>
-                  <button onClick={() => handleUpdateArea(!active, index)}>
-                    {active && index === indexActive ? "Fechar" : "Atualizar"}
-                  </button>
+                <div className="password-container">
+                  <label htmlFor="password">Senha para editar:</label>
+                  <input
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
                 </div>
+                {password === pwd && (
+                  <div className="admin__infos__btns">
+                    <button
+                      key={`btn-${index}`}
+                      onClick={() => handleDelete(item._id)}
+                    >
+                      Delete
+                    </button>
+                    <button onClick={() => handleUpdateArea(!active, index)}>
+                      {active && index === indexActive ? "Fechar" : "Atualizar"}
+                    </button>
+                  </div>
+                )}
                 {active && index === indexActive ? (
                   <UpdateItemForm
                     setUpdateTimer={setUpdateTimer}
